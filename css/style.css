@@ -293,7 +293,3 @@ html[data-theme="dark"] .deals-copy{background:#1a2b35;border-color:#344954}
 html[data-theme="dark"] .deals-copy>p:last-child{color:#b5c5ce}
 @media(max-width:620px){.service-area-map{margin-top:20px}.service-area-map iframe{height:300px}.deals-copy{padding:19px}}
 
-/* Give the rotating work photos enough room and show each image in full. */
-.project-grid{grid-auto-rows:190px}
-.project-photo img{object-fit:contain;background:#e5f3f8}
-@media(max-width:620px){.project-grid{grid-auto-rows:175px;grid-template-rows:220px repeat(3,175px)}}
