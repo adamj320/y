@@ -3,7 +3,7 @@ const projectGrid = document.querySelector('.project-gallery .project-grid');
 if (projectGrid) {
   const projectPhotos = Array.from(projectGrid.querySelectorAll('.project-photo'));
   const selectionKey = 'mahoney-project-gallery-selection';
-  const selectionSize = Math.min(12, projectPhotos.length);
+  const selectionSize = Math.min(10, projectPhotos.length);
   let previousSelection = [];
   try {
     const savedSelection = JSON.parse(localStorage.getItem(selectionKey) || '[]');
