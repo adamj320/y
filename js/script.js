@@ -79,22 +79,52 @@ if (scheduleForm) {
     const timeField = scheduleForm.querySelector('select[name="time"]');
     const serviceField = scheduleForm.querySelector('select[name="service"]');
     const detailsField = scheduleForm.querySelector('textarea[name="details"]');
-    const namePattern = /^[A-Za-z\u00C0-\u00FF][A-Za-z\u00C0-\u00FF .'-]{1,79}$/;
-    const phonePattern = /^\+?[0-9(). -]{7,20}$/;
+    const namePattern = /^[A-Za-z\u00C0-\u024F][A-Za-z\u00C0-\u024F'’.-]*(?:\s+[A-Za-z\u00C0-\u024F][A-Za-z\u00C0-\u024F'’.-]*){0,3}$/;
+    const phonePattern = /^(?:\+?1[\s().-]*)?(?:[2-9]\d{2})[\s().-]*(?:[2-9]\d{2})[\s().-]*\d{4}$/;
     const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    const townPattern = /^[A-Za-z\u00C0-\u00FF0-9 .'-]{2,80}$/;
+    const townPattern = /^[A-Za-z\u00C0-\u024F][A-Za-z\u00C0-\u024F .'-]{1,78}$/;
+    const zipPattern = /^\d{5}(?:-?\d{4})?$/;
+    const isPlaceholder = (value) => /^(?:test|testing|tester|asdf|qwerty|yourname|yourtown|name|none|na|n\/a)+$/i.test(value.toLowerCase().replace(/[^a-z0-9/]/g, ''));
 
-    if (nameInput) nameInput.setCustomValidity(namePattern.test(nameInput.value.trim()) ? '' : 'Enter a valid name using letters, spaces, apostrophes, or hyphens.');
-    if (phoneInput) {
-      const digits = phoneInput.value.replace(/\D/g, '').length;
-      phoneInput.setCustomValidity(phonePattern.test(phoneInput.value.trim()) && digits >= 10 && digits <= 15 ? '' : 'Enter a phone number with 10 to 15 digits.');
+    if (nameInput) nameInput.value = nameInput.value.trim().replace(/\s+/g, ' ');
+    if (phoneInput) phoneInput.value = phoneInput.value.trim();
+    if (emailInput) emailInput.value = emailInput.value.trim();
+    if (townInput) townInput.value = townInput.value.trim().replace(/\s+/g, ' ');
+    if (detailsField) detailsField.value = detailsField.value.trim();
+
+    if (nameInput) {
+      const nameValue = nameInput.value;
+      const nameIsRepeated = /^(.)\1{3,}$/i.test(nameValue.replace(/\s/g, ''));
+      nameInput.setCustomValidity(namePattern.test(nameValue) && !isPlaceholder(nameValue) && !nameIsRepeated ? '' : 'Enter your real name using letters; placeholder names like "test" are not accepted.');
     }
-    if (emailInput) emailInput.setCustomValidity(emailPattern.test(emailInput.value.trim()) ? '' : 'Enter a valid email address.');
-    if (townInput) townInput.setCustomValidity(townPattern.test(townInput.value.trim()) ? '' : 'Enter your town or ZIP code.');
+    if (phoneInput) {
+      const digits = phoneInput.value.replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '');
+      const repeatedDigits = /^(\d)\1+$/.test(digits);
+      const repeatedGroups = /^(\d{2})\1{4,}$/.test(digits) || /^(\d{3})\1{2,}\d?$/.test(digits);
+      const sequence = /^(?:0123456789|1234567890|9876543210|0987654321)$/.test(digits);
+      const validPhone = phonePattern.test(phoneInput.value) && digits.length === 10 && !repeatedDigits && !repeatedGroups && !sequence;
+      phoneInput.setCustomValidity(validPhone ? '' : 'Enter a valid 10-digit U.S. phone number. Repeated or placeholder numbers are not accepted.');
+    }
+    if (emailInput) {
+      const emailValue = emailInput.value;
+      const [emailName = '', emailDomain = ''] = emailValue.split('@');
+      const exampleDomain = /(^|\.)example\.(?:com|net|org)$/i.test(emailDomain) || /^(?:test|invalid)\./i.test(emailDomain);
+      const validEmail = emailPattern.test(emailValue) && !isPlaceholder(emailName) && !exampleDomain;
+      emailInput.setCustomValidity(validEmail ? '' : 'Enter a real email address; test and example addresses are not accepted.');
+    }
+    if (townInput) {
+      const location = townInput.value;
+      const validLocation = (zipPattern.test(location) || townPattern.test(location)) && !isPlaceholder(location);
+      townInput.setCustomValidity(validLocation ? '' : 'Enter a town name or a 5-digit ZIP code (ZIP+4 is also accepted).');
+    }
     if (dateField) dateField.setCustomValidity(/^\d{4}-\d{2}-\d{2}$/.test(dateField.value) && (!dateField.min || dateField.value >= dateField.min) ? '' : 'Choose a valid date today or later.');
     if (timeField) timeField.setCustomValidity(/^(Morning|Afternoon|Evening|Flexible)$/.test(timeField.value) ? '' : 'Choose a time preference.');
     if (serviceField) serviceField.setCustomValidity(/^(Plumbing repair|Drain cleaning|Commercial plumbing|Installation or remodel|Water heater|Boiler or heating|Ductless mini-splits|Pipe repair, PEX or copper|Other)$/.test(serviceField.value) ? '' : 'Choose a service from the list.');
-    if (detailsField) detailsField.setCustomValidity(detailsField.value.length <= 1200 && !/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(detailsField.value) ? '' : 'Use up to 1,200 characters without control characters.');
+    if (detailsField) {
+      const details = detailsField.value;
+      const validDetails = !details || (details.length >= 8 && details.length <= 1200 && /[A-Za-z\u00C0-\u024F]{3}/.test(details) && !isPlaceholder(details) && !/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(details));
+      detailsField.setCustomValidity(validDetails ? '' : 'Add at least 8 meaningful characters, or leave project details blank.');
+    }
     if (!scheduleForm.reportValidity()) event.preventDefault();
   });
 }
