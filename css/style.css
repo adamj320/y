@@ -279,6 +279,20 @@ html[data-theme="dark"] .schedule-emergency{background:#1a2b35;border-left-color
 html[data-theme="dark"] .schedule-emergency strong{color:#f4f9fc}
 html[data-theme="dark"] .schedule-emergency span{color:#c1d4de}
 
+/* Map and current-deals additions. */
+.service-area-map{margin-top:28px;overflow:hidden;border:1px solid var(--line);border-radius:6px;background:#e5f3f8}
+.service-area-map iframe{display:block;width:100%;height:390px;border:0}
+.deals-section{background:#e8f0f3}
+.deals-inner{display:flex;align-items:center;gap:24px}
+.deals-copy{width:100%;padding:22px 24px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:5px;background:#fff}
+.deals-copy .eyebrow{margin-bottom:8px}
+.deals-copy h2{margin-bottom:8px}
+.deals-copy>p:last-child{margin:0;color:#607987;font-size:12px;line-height:1.7}
+html[data-theme="dark"] .deals-section{background:#14232c}
+html[data-theme="dark"] .deals-copy{background:#1a2b35;border-color:#344954}
+html[data-theme="dark"] .deals-copy>p:last-child{color:#b5c5ce}
+@media(max-width:620px){.service-area-map{margin-top:20px}.service-area-map iframe{height:300px}.deals-copy{padding:19px}}
+
 /* Give the rotating work photos enough room and show each image in full. */
 .project-grid{grid-auto-rows:190px}
 .project-photo img{object-fit:contain;background:#e5f3f8}
