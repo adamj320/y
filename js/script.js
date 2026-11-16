@@ -224,3 +224,16 @@ if (brandMarquee && 'IntersectionObserver' in window) {
   });
   marqueeObserver.observe(brandMarquee);
 }
+
+// Load the Tawk.to chat widget on every page that includes this shared script.
+(function () {
+  window.Tawk_API = window.Tawk_API || {};
+  window.Tawk_LoadStart = window.Tawk_LoadStart || new Date();
+  var s1 = document.createElement('script');
+  var s0 = document.getElementsByTagName('script')[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/6afa8339e166853c46fbaf17/1k7h9162h';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+})();
