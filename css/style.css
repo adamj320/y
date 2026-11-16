@@ -332,7 +332,9 @@ body.service-page .service-area-section .detail-intro{font-size:15px;color:#526a
 body.service-page .detail-section .detail-cards article p:not(.detail-tag){font-size:15px;line-height:1.8;color:#526a78}
 body.service-page .detail-section .detail-symptom-list li{font-size:15px;color:#526a78}
 body.service-page .detail-section .faq-list details p{font-size:15px;color:#526a78}
-body.service-page .detail-hero .detail-grid>div:first-child>p:not(.eyebrow){font-size:16px;color:#526a78}
+body.service-page .detail-hero .detail-grid>div:first-child>p:not(.eyebrow){font-size:16px}
+body.service-page .detail-hero:not(.detail-hero-dark) .detail-grid>div:first-child>p:not(.eyebrow){color:#526a78}
+body.service-page .detail-hero-dark .detail-grid>div:first-child>p:not(.eyebrow){color:#d4e5ed}
 body.service-page .brands-heading>p{font-size:15px;color:#526a78}
 html[data-theme="dark"] body.service-page .detail-section .detail-intro,
 html[data-theme="dark"] body.service-page .service-area-section .detail-intro,
@@ -340,4 +342,5 @@ html[data-theme="dark"] body.service-page .detail-section .detail-cards article 
 html[data-theme="dark"] body.service-page .detail-section .detail-symptom-list li,
 html[data-theme="dark"] body.service-page .detail-section .faq-list details p,
 html[data-theme="dark"] body.service-page .brands-heading>p{color:#bdcbd3}
-html[data-theme="dark"] body.service-page .detail-hero .detail-grid>div:first-child>p:not(.eyebrow){color:#bdcbd3}
+html[data-theme="dark"] body.service-page .detail-hero:not(.detail-hero-dark) .detail-grid>div:first-child>p:not(.eyebrow){color:#bdcbd3}
+html[data-theme="dark"] body.service-page .detail-hero-dark .detail-grid>div:first-child>p:not(.eyebrow){color:#d4e5ed}
