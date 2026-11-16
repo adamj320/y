@@ -300,3 +300,10 @@ html[data-theme="dark"] .deals-copy>p:last-child{color:#b5c5ce}
 .deals-copy .deal-list strong{color:#117ca8;font-weight:800}
 html[data-theme="dark"] .deals-copy .deal-list li{color:#c4d3db}
 html[data-theme="dark"] .deals-copy .deal-list strong{color:#70c8e8}
+
+/* Keep service breadcrumbs visible and easy to scan. */
+.breadcrumbs{margin-bottom:18px;color:var(--muted);font-size:11px;line-height:1.5}
+.breadcrumbs ol{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.breadcrumbs li+li:before{content:'/';display:inline-block;margin-right:8px;color:#8ba0aa}
+.breadcrumbs a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.breadcrumbs [aria-current=page]{color:var(--deep)}
