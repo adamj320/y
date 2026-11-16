@@ -325,3 +325,19 @@ html[data-theme="dark"] .specialty-visual .visual-kicker{background:rgba(16,26,3
   .header-inner>.menu-toggle i::before{position:absolute;top:3px;left:1px;width:20px;height:2px;background:currentColor;content:"";box-shadow:0 7px 0 currentColor,0 14px 0 currentColor}
   .header-inner>.theme-toggle .theme-toggle-icon,.header-inner>.theme-toggle .theme-toggle-icon svg{width:22px;height:22px}
 }
+
+/* Keep service-page explanatory copy comfortable to read. */
+body.service-page .detail-section .detail-intro,
+body.service-page .service-area-section .detail-intro{font-size:15px;color:#526a78}
+body.service-page .detail-section .detail-cards article p:not(.detail-tag){font-size:14px;line-height:1.8;color:#526a78}
+body.service-page .detail-section .detail-symptom-list li{font-size:14px;color:#526a78}
+body.service-page .detail-section .faq-list details p{font-size:14px;color:#526a78}
+body.service-page .detail-hero .detail-grid>div:first-child>p:not(.eyebrow){font-size:16px;color:#526a78}
+body.service-page .brands-heading>p{font-size:14px;color:#526a78}
+html[data-theme="dark"] body.service-page .detail-section .detail-intro,
+html[data-theme="dark"] body.service-page .service-area-section .detail-intro,
+html[data-theme="dark"] body.service-page .detail-section .detail-cards article p:not(.detail-tag),
+html[data-theme="dark"] body.service-page .detail-section .detail-symptom-list li,
+html[data-theme="dark"] body.service-page .detail-section .faq-list details p,
+html[data-theme="dark"] body.service-page .brands-heading>p{color:#bdcbd3}
+html[data-theme="dark"] body.service-page .detail-hero .detail-grid>div:first-child>p:not(.eyebrow){color:#bdcbd3}
