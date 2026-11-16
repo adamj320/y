@@ -293,3 +293,10 @@ html[data-theme="dark"] .deals-copy{background:#1a2b35;border-color:#344954}
 html[data-theme="dark"] .deals-copy>p:last-child{color:#b5c5ce}
 @media(max-width:620px){.service-area-map{margin-top:20px}.service-area-map iframe{height:300px}.deals-copy{padding:19px}}
 
+
+/* Clear, readable offer list in both themes. */
+.deals-copy .deal-list{display:grid;gap:10px;margin:15px 0 0;padding:0;list-style:none}
+.deals-copy .deal-list li{padding-top:9px;border-top:1px solid var(--line);color:#234c62;font-size:13px;line-height:1.65}
+.deals-copy .deal-list strong{color:#117ca8;font-weight:800}
+html[data-theme="dark"] .deals-copy .deal-list li{color:#c4d3db}
+html[data-theme="dark"] .deals-copy .deal-list strong{color:#70c8e8}
