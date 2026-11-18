@@ -364,3 +364,30 @@ html[data-theme="dark"] body.service-page .detail-hero-dark .detail-grid>div:fir
 .water-heater-tankless-card .detail-card-link{position:relative;display:flex;min-height:100%;flex-direction:column;padding:27px 24px;border-radius:inherit;color:inherit;text-decoration:none}
 .water-heater-tankless-card .detail-card-link:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(max-width:620px){.water-heater-tankless-card{padding:0}.water-heater-tankless-card .detail-card-link{padding:23px 19px}}
+/* Expandable, crawlable county directory keeps the homepage map area compact. */
+.service-area-directory{background:#f5f8f9}
+.county-directory-list{display:grid;gap:12px;margin-top:28px}
+.county-directory{overflow:hidden;border:1px solid var(--line);border-radius:6px;background:#fff}
+.county-directory summary{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 22px;color:var(--deep);cursor:pointer;list-style:none}
+.county-directory summary::-webkit-details-marker{display:none}
+.county-directory summary:after{content:'+';color:var(--accent);font-size:24px;line-height:1}
+.county-directory[open] summary:after{content:'−'}
+.county-directory summary span{display:flex;flex-direction:column;gap:4px}
+.county-directory summary strong{font-size:18px}
+.county-directory summary small{color:var(--muted);font-size:13px}
+.county-directory summary:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.county-place-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:0;padding:18px 22px 22px;border-top:1px solid var(--line);list-style:none}
+.county-place-list li{padding:8px 10px;border-radius:4px;background:#f1f7f9;color:#345568;font-size:13px;line-height:1.4}
+.service-area-directory-note{margin:22px 0 0;color:var(--muted);font-size:14px;line-height:1.7}
+.service-area-directory-note a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.service-area-directory-link{display:inline-flex;align-items:center;gap:12px;margin-top:20px;color:var(--deep);font-size:14px;font-weight:750;text-decoration:underline;text-underline-offset:4px}
+.service-area-directory-link span{color:var(--accent);font-size:20px}
+html[data-theme="dark"] .service-area-directory{background:#14232c}
+html[data-theme="dark"] .county-directory{background:#1a2b35;border-color:#344954}
+html[data-theme="dark"] .county-directory summary{color:#e6eef3}
+html[data-theme="dark"] .county-directory summary small{color:#b5c5ce}
+html[data-theme="dark"] .county-place-list li{background:#223642;color:#d4e5ed}
+html[data-theme="dark"] .service-area-directory-note{color:#b5c5ce}
+html[data-theme="dark"] .service-area-directory-link{color:#e6eef3}
+@media(max-width:900px){.county-place-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:620px){.county-directory summary{padding:16px}.county-place-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:13px}.county-place-list li{padding:7px 8px;font-size:12px}.service-area-directory-link{font-size:13px}}
