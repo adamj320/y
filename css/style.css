@@ -391,3 +391,11 @@ html[data-theme="dark"] .service-area-directory-note{color:#b5c5ce}
 html[data-theme="dark"] .service-area-directory-link{color:#e6eef3}
 @media(max-width:900px){.county-place-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){.county-directory summary{padding:16px}.county-place-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:13px}.county-place-list li{padding:7px 8px;font-size:12px}.service-area-directory-link{font-size:13px}}
+/* County accordions sit below the homepage map without expanding the visible map area. */
+.service-area-inline-directory{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.service-area-inline-directory>.eyebrow{margin-bottom:8px}
+.service-area-inline-directory h3{margin:0;color:var(--deep);font-size:clamp(22px,2.8vw,30px);letter-spacing:-.04em}
+.service-area-directory-intro{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.65}
+.service-area-inline-directory .county-directory-list{margin-top:14px}
+html[data-theme="dark"] .service-area-inline-directory h3{color:#e6eef3}
+html[data-theme="dark"] .service-area-directory-intro{color:#b5c5ce}
