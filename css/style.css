@@ -353,3 +353,14 @@ html[data-theme="dark"] body.service-page .detail-hero-dark .detail-grid>div:fir
 .water-heater-card-action{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px;color:var(--accent);font-size:13px;font-weight:700}
 .water-heater-card-action span{font-size:19px;line-height:1}
 @media(max-width:620px){.water-heater-service-cards article{padding:0}.water-heater-service-cards .detail-card-link{padding:23px 19px}}
+/* Clickable service cards use the same full-card interaction across all service pages. */
+.clickable-service-cards article{padding:0}
+.clickable-service-cards .detail-card-link{position:relative;display:flex;min-height:100%;flex-direction:column;padding:27px 24px;border-radius:inherit;color:inherit;text-decoration:none}
+.clickable-service-cards .detail-card-link:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.clickable-service-cards .detail-card-link:hover h3{color:var(--accent)}
+@media(max-width:620px){.clickable-service-cards article{padding:0}.clickable-service-cards .detail-card-link{padding:23px 19px}}
+/* Link the tankless system overview card while keeping other system cards informational. */
+.water-heater-tankless-card{padding:0}
+.water-heater-tankless-card .detail-card-link{position:relative;display:flex;min-height:100%;flex-direction:column;padding:27px 24px;border-radius:inherit;color:inherit;text-decoration:none}
+.water-heater-tankless-card .detail-card-link:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:620px){.water-heater-tankless-card{padding:0}.water-heater-tankless-card .detail-card-link{padding:23px 19px}}

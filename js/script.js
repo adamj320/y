@@ -123,7 +123,7 @@ if (scheduleForm) {
     }
     if (dateField) dateField.setCustomValidity(/^\d{4}-\d{2}-\d{2}$/.test(dateField.value) && (!dateField.min || dateField.value >= dateField.min) ? '' : 'Choose a valid date today or later.');
     if (timeField) timeField.setCustomValidity(/^(Morning|Afternoon|Evening|Flexible)$/.test(timeField.value) ? '' : 'Choose a time preference.');
-    if (serviceField) serviceField.setCustomValidity(/^(Plumbing repair|Drain cleaning|Commercial plumbing|Installation or remodel|Water heater|Boiler or heating|Ductless mini-splits|Pipe repair, PEX or copper|Other)$/.test(serviceField.value) ? '' : 'Choose a service from the list.');
+    if (serviceField) serviceField.setCustomValidity(/^(Plumbing repair|Drain cleaning|Commercial plumbing|Installation or remodel|Water heater|Boiler or heating|Ductless mini-splits|Pipe repair, PEX, copper or cast iron|Plumbing inspection|Other)$/.test(serviceField.value) ? '' : 'Choose a service from the list.');
     if (detailsField) {
       const details = detailsField.value;
       const validDetails = !details || (details.length >= 8 && details.length <= 1200 && /[A-Za-z\u00C0-\u024F]{3}/.test(details) && !isPlaceholder(details) && !/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(details));
