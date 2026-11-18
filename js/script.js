@@ -59,6 +59,10 @@ if (year) year.textContent = String(new Date().getFullYear());
 const scheduleForm = document.querySelector('#schedule-form');
 if (scheduleForm) {
   const serviceRequest = scheduleForm.querySelector('select[name="service"]');
+  const requestedService = new URLSearchParams(window.location.search).get('service');
+  if (serviceRequest && requestedService && Array.from(serviceRequest.options).some((option) => option.value === requestedService || option.textContent.trim() === requestedService)) {
+    serviceRequest.value = requestedService;
+  }
   document.querySelectorAll('[data-book-service]').forEach((link) => {
     link.addEventListener('click', () => {
       if (serviceRequest) serviceRequest.value = link.dataset.bookService;
